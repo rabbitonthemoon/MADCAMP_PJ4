@@ -7,17 +7,20 @@ import Room from './components/room';
 import CanvasSetup from './canvasSetup';
 
 function App() {
+
   return (
     <CanvasSetup>
       <ambientLight intensity={0.9} />
       <directionalLight color='#FFF' position={[0, 1, 0]} />
 
-      {/* 그리드 */}
-      <gridHelper args={[100, 100, 'red', 'red']} position={[0, 0, 0]} rotation={[0, 0, 0]} />
-      <gridHelper args={[100, 100, 'green', 'green']} position={[-50, 50, 0]} rotation={[0, 0, Math.PI / 2]} />
-      <gridHelper args={[100, 100, 'blue', 'blue']} position={[0, 50, 50]} rotation={[Math.PI / 2, 0, 0]} />
-
-      <PerspectiveCamera fov={40} near={1} far={1000} position={[10, 0, 50]} />
+      {/* X 축 그리드 (Red) - XZ 평면 */}
+      <gridHelper args={[200, 100, 'red', 'red']} position={[0, -100, 0]} rotation={[0, 0, 0]} />
+      
+      {/* Y 축 그리드 (Green) - XY 평면 */}
+      <gridHelper args={[200, 100, 'green', 'green']} position={[-100, 0, 0]} rotation={[0, 0, Math.PI / 2]} />
+      
+      {/* Z 축 그리드 (Blue) - YZ 평면 */}
+      <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} />
 
       <Cat />
       <Room />

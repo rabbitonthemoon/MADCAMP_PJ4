@@ -4,6 +4,7 @@ import { useFrame } from '@react-three/fiber';
 
 function Desk() {
     const { scene: deskScene } = useGLTF('../model/desk.glb');
+    const { scene: chairScene } = useGLTF('../model/chair.glb');
 
     // 초기 위치 정보 제거
     const removeInitialPosition = (scene) => {
@@ -15,9 +16,12 @@ function Desk() {
     };
 
     removeInitialPosition(deskScene);
+    removeInitialPosition(chairScene);
   
     const desk1Ref = useRef();
     const desk2Ref = useRef();
+    const chair1Ref = useRef();
+    const chair2Ref = useRef();
 
     const deskContainerRef = useRef();
     
@@ -29,6 +33,12 @@ function Desk() {
       desk2Ref.current.position.set(6, 0, 0);
       desk2Ref.current.scale.set(5, 5, 5);
 
+      chair1Ref.current.position.set(0, 1, 2);
+      chair1Ref.current.scale.set(5, 5, 5);
+
+      chair2Ref.current.position.set(6, 1, 2);
+      chair2Ref.current.scale.set(5, 5, 5);
+
       deskContainerRef.current.position.set(-25, -86, -85);
       deskContainerRef.current.scale.set(10, 10, 10);
     });
@@ -39,6 +49,8 @@ function Desk() {
           {/* 각 오브젝트를 primitive로 렌더링 */}
           <primitive object={deskScene.clone()} ref={desk1Ref} />
           <primitive object={deskScene.clone()} ref={desk2Ref} />
+          <primitive object={chairScene.clone()} ref={chair1Ref} />
+          <primitive object={chairScene.clone()} ref={chair2Ref} />
         </group>
       </>
     );

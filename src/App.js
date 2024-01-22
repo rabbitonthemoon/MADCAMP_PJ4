@@ -1,19 +1,23 @@
 import './App.css';
 
 import React, { useState, useEffect } from 'react';
-// import Cat from './components/cat';
-// import Room from './components/room';
 import CanvasSetup from './canvasSetup';
 import Bed from './components/staticObjects/bed'
 import Desk from './components/staticObjects/desk'
 import Furnace from './components/staticObjects/furnace'
 import Carpet from './components/staticObjects/carpet'
 import Cat from './components/staticObjects/cat'
-// import Frog from './components/staticObjects/chocolatefrog'
 import Pot from './components/staticObjects/pot'
 import Paperplane from './components/staticObjects/paperplane'
 import Phillows from './components/staticObjects/phillows'
-
+import Candle from './components/staticObjects/candle'
+import Frame from './components/staticObjects/portrait-frame'
+import Book from './components/staticObjects/book'
+import Owl from './components/animatedObjects/owl'
+import Broom from './components/animatedObjects/broom'
+import Wand from './components/animatedObjects/magic-wand'
+import Scroll from './components/animatedObjects/scroll'
+import SortingHat from './components/animatedObjects/sorting-hat'
 
 function App() {
   const [lightOn, setLightOn] = useState(true);
@@ -46,11 +50,18 @@ function App() {
       <Furnace lightOn={lightOn}/>
       <Carpet lightOn={lightOn}/>
       <Cat lightOn={lightOn}/>
-      {/* <Frog lightOn={lightOn}/> */}
       <Pot lightOn={lightOn}/>
       <Paperplane lightOn={lightOn}/>
       <Phillows lightOn={lightOn}/>
-
+      <Owl lightOn={lightOn}/>
+      <Broom lightOn={lightOn}/>
+      <Wand lightOn={lightOn}/>
+      <Scroll lightOn={lightOn}/>
+      <SortingHat lightOn={lightOn}/>
+      <Frame lightOn={lightOn}/>
+      <Candle lightOn={lightOn}/>
+      <Book lightOn={lightOn}/>
+        
     </CanvasSetup>
 
     <button className="toggle-button" onClick={() => setLightOn(!lightOn)}>

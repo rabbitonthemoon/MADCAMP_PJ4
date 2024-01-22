@@ -36,8 +36,9 @@ function Desk() {
       chair1Ref.current.position.set(0, 1, 2);
       chair1Ref.current.scale.set(5, 5, 5);
 
-      chair2Ref.current.position.set(6, 1, 2);
+      chair2Ref.current.position.set(6, 1, 4);
       chair2Ref.current.scale.set(5, 5, 5);
+      chair2Ref.current.rotation.set(0, Math.PI * 1.3, 0);
 
       deskContainerRef.current.position.set(-25, -86, -85);
       deskContainerRef.current.scale.set(10, 10, 10);

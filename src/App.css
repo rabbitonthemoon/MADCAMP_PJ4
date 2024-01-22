@@ -28,6 +28,22 @@
   color: #61dafb;
 }
 
+/* 스위치 */
+.toggle-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  z-index: 100; 
+  background-color: #fff;
+  border: none; 
+  cursor: pointer;
+  border-radius: 5px;
+}
+.toggle-button:hover {
+  background-color: #ddd;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

@@ -1,10 +1,12 @@
 import './App.css';
 
 import React from 'react';
-import { PerspectiveCamera } from '@react-three/drei';
 import Cat from './components/cat';
 import Room from './components/room';
 import CanvasSetup from './canvasSetup';
+import Bed from './components/staticObjects/bed'
+import Desk from './components/staticObjects/desk'
+import Furnace from './components/staticObjects/furnace'
 
 function App() {
 
@@ -22,8 +24,11 @@ function App() {
       {/* Z 축 그리드 (Blue) - YZ 평면 */}
       <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} />
 
-      <Cat />
-      <Room />
+      {/* <Cat />
+      <Room /> */}
+      <Bed/>
+      <Desk/>
+      <Furnace/>
     </CanvasSetup>
   );
 }

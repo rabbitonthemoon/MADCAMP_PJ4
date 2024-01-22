@@ -7,6 +7,7 @@ import CanvasSetup from './canvasSetup';
 import Bed from './components/staticObjects/bed'
 import Desk from './components/staticObjects/desk'
 import Furnace from './components/staticObjects/furnace'
+import Carpet from './components/staticObjects/carpet'
 
 function App() {
   const [lightOn, setLightOn] = useState(true);
@@ -37,6 +38,7 @@ function App() {
       <Bed lightOn={lightOn}/>
       <Desk lightOn={lightOn}/>
       <Furnace lightOn={lightOn}/>
+      <Carpet lightOn={lightOn}/>
 
     </CanvasSetup>
 

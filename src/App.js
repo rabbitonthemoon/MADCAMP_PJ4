@@ -6,6 +6,10 @@ import Bed from './components/staticObjects/bed'
 import Desk from './components/staticObjects/desk'
 import Furnace from './components/staticObjects/furnace'
 import Carpet from './components/staticObjects/carpet'
+import Cat from './components/staticObjects/cat'
+import Pot from './components/staticObjects/pot'
+import Paperplane from './components/staticObjects/paperplane'
+import Phillows from './components/staticObjects/phillows'
 import Candle from './components/staticObjects/candle'
 import Frame from './components/staticObjects/portrait-frame'
 import Book from './components/staticObjects/book'
@@ -45,6 +49,10 @@ function App() {
       <Desk lightOn={lightOn}/>
       <Furnace lightOn={lightOn}/>
       <Carpet lightOn={lightOn}/>
+      <Cat lightOn={lightOn}/>
+      <Pot lightOn={lightOn}/>
+      <Paperplane lightOn={lightOn}/>
+      <Phillows lightOn={lightOn}/>
       <Owl lightOn={lightOn}/>
       <Broom lightOn={lightOn}/>
       <Wand lightOn={lightOn}/>
@@ -53,7 +61,7 @@ function App() {
       <Frame lightOn={lightOn}/>
       <Candle lightOn={lightOn}/>
       <Book lightOn={lightOn}/>
-
+        
     </CanvasSetup>
 
     <button className="toggle-button" onClick={() => setLightOn(!lightOn)}>

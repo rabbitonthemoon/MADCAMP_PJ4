@@ -31,18 +31,17 @@
 /* 스위치 */
 .toggle-button {
   position: absolute;
-  top: 20px; /* 버튼의 위치를 조정합니다. */
+  top: 20px;
   right: 20px;
   padding: 10px 20px;
-  z-index: 100; /* 캔버스 위에 표시되도록 z-index 값을 높입니다. */
-  background-color: #fff; /* 버튼 배경색 */
-  border: none; /* 테두리 제거 */
-  cursor: pointer; /* 마우스 커서를 포인터로 변경 */
-  border-radius: 5px; /* 버튼 모서리를 둥글게 */
+  z-index: 100; 
+  background-color: #fff;
+  border: none; 
+  cursor: pointer;
+  border-radius: 5px;
 }
-
 .toggle-button:hover {
-  background-color: #ddd; /* 마우스를 올렸을 때의 배경색 */
+  background-color: #ddd;
 }
 
 @keyframes App-logo-spin {

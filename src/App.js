@@ -6,7 +6,6 @@ import Room from './components/room';
 import CanvasSetup from './canvasSetup';
 
 function App() {
-
   const [lightOn, setLightOn] = useState(true);
 
   useEffect(() => {
@@ -16,13 +15,12 @@ function App() {
   return (
     <>
     <CanvasSetup>
-      <Room lightOn={lightOn} />
 
-      {/* <ambientLight intensity={0.1} />
-      <directionalLight color='#FFF' position={[0, 1, 0]} /> */}
-      <ambientLight intensity={lightOn ? 0.5 : 0} />
+      {/* 전역조명 */}
+      <ambientLight intensity={lightOn ? 0.8 : 0} />
+
+      {/* 특정 방향 조명 */}
       <directionalLight color='#FFF' intensity={lightOn ? 0.8 : 0} position={[0, 1, 0]} />
-
 
       {/* X 축 그리드 (Red) - XZ 평면 */}
       <gridHelper args={[200, 100, 'red', 'red']} position={[0, -100, 0]} rotation={[0, 0, 0]} />
@@ -34,7 +32,7 @@ function App() {
       <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} />
 
       <Cat />
-      <Room />
+      <Room lightOn={lightOn} />
     </CanvasSetup>
 
     <button className="toggle-button" onClick={() => setLightOn(!lightOn)}>

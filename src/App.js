@@ -1,13 +1,19 @@
 import './App.css';
 
 import React, { useState, useEffect } from 'react';
-import Cat from './components/cat';
-import Room from './components/room';
+// import Cat from './components/cat';
+// import Room from './components/room';
 import CanvasSetup from './canvasSetup';
 import Bed from './components/staticObjects/bed'
 import Desk from './components/staticObjects/desk'
 import Furnace from './components/staticObjects/furnace'
 import Carpet from './components/staticObjects/carpet'
+import Cat from './components/staticObjects/cat'
+// import Frog from './components/staticObjects/chocolatefrog'
+import Pot from './components/staticObjects/pot'
+import Paperplane from './components/staticObjects/paperplane'
+import Phillows from './components/staticObjects/phillows'
+
 
 function App() {
   const [lightOn, setLightOn] = useState(true);
@@ -39,6 +45,11 @@ function App() {
       <Desk lightOn={lightOn}/>
       <Furnace lightOn={lightOn}/>
       <Carpet lightOn={lightOn}/>
+      <Cat lightOn={lightOn}/>
+      {/* <Frog lightOn={lightOn}/> */}
+      <Pot lightOn={lightOn}/>
+      <Paperplane lightOn={lightOn}/>
+      <Phillows lightOn={lightOn}/>
 
     </CanvasSetup>
 

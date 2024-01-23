@@ -6,6 +6,7 @@ function Lighting({ lightOn }) {
   const lightRef = useRef();
   const ambientLightRef = useRef();
   const directionalLightRef = useRef();
+  const hemisphereLightRef = useRef();
   const { scene } = useThree();
 
   useEffect(() => {

@@ -2,8 +2,10 @@ import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-function Chandelier() {
+function Chandelier({setLightOn}) {
     const { scene: chandelierScene } = useGLTF('../model/chandelier.glb');
+    const chandelierRef = useRef();
+    const chandelierContainerRef = useRef();
 
     // 초기 위치 정보 제거
     const removeInitialPosition = (scene) => {
@@ -15,10 +17,6 @@ function Chandelier() {
     };
 
     removeInitialPosition(chandelierScene);
-  
-    const chandelierRef = useRef();
-
-    const chandelierContainerRef = useRef();
     
     useFrame(() => {
       // 각각의 오브젝트 위치와 크기 설정
@@ -29,12 +27,19 @@ function Chandelier() {
       chandelierContainerRef.current.position.set(0, -100, 30);
       chandelierContainerRef.current.scale.set(12, 12, 12);
     });
+
+    const handleClick = () => {
+      setLightOn(prev => !prev);  // 조명 상태
+    };
   
     return (
       <>
         <group ref={chandelierContainerRef}>
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={chandelierScene.clone()} ref={chandelierRef} />
+          <primitive 
+            object={chandelierScene.clone()} 
+            ref={chandelierRef} 
+            onClick={handleClick}/>
         </group>
       </>
     );

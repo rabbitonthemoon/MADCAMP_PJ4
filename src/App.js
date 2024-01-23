@@ -22,7 +22,7 @@ import Wand from './components/animatedObjects/magic-wand'
 import Scroll from './components/animatedObjects/scroll'
 import SortingHat from './components/animatedObjects/sorting-hat'
 import Books from './components/staticObjects/books'
-import Chandelier from './components/staticObjects/chandelier';
+import Chandelier from './components/staticObjects/chandelier'
 
 function App() {
   const [lightOn, setLightOn] = useState(true);
@@ -44,7 +44,7 @@ function App() {
       {/* <gridHelper args={[200, 100, 'green', 'green']} position={[-100, 0, 0]} rotation={[0, 0, Math.PI / 2]} /> */}
       
       {/* Z 축 그리드 (Blue) - YZ 평면 */}
-      {/* <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} /> */} */}
+      {/* <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} /> */} 
         
       <Bed lightOn={lightOn}/>
       <Desk lightOn={lightOn}/>
@@ -63,15 +63,15 @@ function App() {
       <Candle lightOn={lightOn}/>
       <Book lightOn={lightOn}/>
       <Books lightOn={lightOn}/>
-      <Chandelier lightOn={lightOn}/>
+      <Chandelier setLightOn={setLightOn}/>
       <Dorm lightOn={lightOn}/>
       <Window lightOn={lightOn}/>
 
     </CanvasSetup>
 
-    <button className="toggle-button" onClick={() => setLightOn(!lightOn)}>
+    {/* <button className="toggle-button" onClick={() => setLightOn(!lightOn)}>
         button
-      </button>
+      </button> */}
     </>
   );
 }

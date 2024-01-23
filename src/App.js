@@ -28,6 +28,8 @@ function App() {
     console.log(`The light is now ${lightOn ? 'ON' : 'OFF'}.`);
   }, [lightOn]);
 
+
+
   return (
     <>
     <CanvasSetup>

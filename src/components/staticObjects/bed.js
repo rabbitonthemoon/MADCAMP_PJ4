@@ -51,8 +51,8 @@ function Bed() {
       bedFrameRef.current.position.set(0, 0, 0);
       bedFrameRef.current.scale.set(5, 5, 5);
 
-      beddingContainerRef.current.position.set(-90, -50, -10);
-      beddingContainerRef.current.scale.set(7, 7, 8.5);
+      beddingContainerRef.current.position.set(-100, -40, -10);
+      beddingContainerRef.current.scale.set(10, 9, 8.5);
     });
   
     return (

@@ -23,24 +23,24 @@ function Dorm() {
     <>
     <group ref={dormContainerRef}>
         <Box ref={wall1Ref} args={[10, 180, 210]} position={[-105, -20, -5]}>
-            <meshStandardMaterial color={'#0a6951'} /> 
+            <meshStandardMaterial color={'#4a4a4a'} /> 
         </Box>
         <group ref={wall2ContainerRef}>
             <Box ref={wall21Ref} args={[200, 40, 10]} position={[0, 50, -105]}>
-                <meshStandardMaterial color={'#9e2c2c'} />
+                <meshStandardMaterial color={'#730800'} />
             </Box>
             <Box ref={wall22Ref} args={[200, 60, 10]} position={[0, -80, -105]}>
-                <meshStandardMaterial color={'#1b4f42'} />
+                <meshStandardMaterial color={'#730800'} />
             </Box>
             <Box ref={wall23Ref} args={[55, 80, 10]} position={[-80, -10, -105]}>
-                <meshStandardMaterial color={'#87320e'} />
+                <meshStandardMaterial color={'#730800'} />
             </Box>
             <Box ref={wall24Ref} args={[85, 80, 10]} position={[57.5, -10, -105]}>
-                <meshStandardMaterial color={'#737373'} />
+                <meshStandardMaterial color={'#730800'} />
             </Box>
         </group>
         <Box ref={floorRef} args={[200, 10, 200]} position={[0, -105, 0]}>
-            <meshStandardMaterial color={'#737373'} />
+            <meshStandardMaterial color={'#4a4a4a'} />
         </Box>
         {/* <Box ref={ceilingRef} args={[100, 100, 100]} position={[0, 0, 0]}>
             <meshStandardMaterial color={'#61dafb'} />

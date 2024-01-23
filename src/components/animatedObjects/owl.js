@@ -29,7 +29,7 @@ function Owl() {
       owlRef.current.scale.set(5, 5, 5);
     //   owlRef.current.rotation.set(0, Math.PI / 2, 0);
 
-      owlContainerRef.current.position.set(-55, 0, -10);
+      owlContainerRef.current.position.set(-45, 13, -25);
       owlContainerRef.current.scale.set(5, 5, 5);
     });
   

@@ -27,13 +27,13 @@ function Desk() {
     
     useFrame(() => {
       // 각각의 오브젝트 위치와 크기 설정
-      desk1Ref.current.position.set(0, 0, 0);
-      desk1Ref.current.scale.set(5, 5, 5);
+      desk1Ref.current.position.set(1, 0, 0);
+      desk1Ref.current.scale.set(4.5, 5, 5);
 
       desk2Ref.current.position.set(6, 0, 0);
-      desk2Ref.current.scale.set(5, 5, 5);
+      desk2Ref.current.scale.set(4.5, 5, 5);
 
-      chair1Ref.current.position.set(0, 1, 2);
+      chair1Ref.current.position.set(1, 1, 2);
       chair1Ref.current.scale.set(5, 5, 5);
 
       chair2Ref.current.position.set(6, 1, 4);

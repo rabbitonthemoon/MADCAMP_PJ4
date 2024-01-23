@@ -14,6 +14,8 @@ import Phillows from './components/staticObjects/phillows'
 import Candle from './components/staticObjects/candle'
 import Frame from './components/staticObjects/portrait-frame'
 import Book from './components/staticObjects/book'
+import Dorm from './components/staticObjects/dorm'
+import Window from './components/staticObjects/window'
 import Owl from './components/animatedObjects/owl'
 import Broom from './components/animatedObjects/broom'
 import Wand from './components/animatedObjects/magic-wand'
@@ -35,14 +37,14 @@ function App() {
 
       <Lighting lightOn={lightOn} />
 
-      {/* X 축 그리드 (Red) - XZ 평면 */}
+      {/* X 축 그리드 (Red) - XZ 평면
       <gridHelper args={[200, 100, 'red', 'red']} position={[0, -100, 0]} rotation={[0, 0, 0]} />
       
       {/* Y 축 그리드 (Green) - XY 평면 */}
-      <gridHelper args={[200, 100, 'green', 'green']} position={[-100, 0, 0]} rotation={[0, 0, Math.PI / 2]} />
+      {/* <gridHelper args={[200, 100, 'green', 'green']} position={[-100, 0, 0]} rotation={[0, 0, Math.PI / 2]} /> */}
       
       {/* Z 축 그리드 (Blue) - YZ 평면 */}
-      <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} />
+      {/* <gridHelper args={[200, 100, 'blue', 'blue']} position={[0, 0, -100]} rotation={[Math.PI / 2, 0, 0]} /> */} */}
         
       <Bed lightOn={lightOn}/>
       <Desk lightOn={lightOn}/>
@@ -62,7 +64,9 @@ function App() {
       <Book lightOn={lightOn}/>
       <Books lightOn={lightOn}/>
       <Chandelier lightOn={lightOn}/>
-        
+      <Dorm lightOn={lightOn}/>
+      <Window lightOn={lightOn}/>
+
     </CanvasSetup>
 
     <button className="toggle-button" onClick={() => setLightOn(!lightOn)}>

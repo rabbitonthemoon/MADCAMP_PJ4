@@ -26,11 +26,11 @@ function SortingHat() {
       // TODO: position, rotation, scale에 animation
       // e.g. catRef.current.position.x = 30 * Math.sin(clock.getElapsedTime() * 3);
       sortingHatRef.current.position.set(0, 0, 0);
-      sortingHatRef.current.scale.set(5, 5, 5);
+      sortingHatRef.current.scale.set(25, 25, 25);
     //   sortingHatRef.current.rotation.set(0, Math.PI / 2, 0);
 
-      sortingHatContainerRef.current.position.set(35, -70, -40);
-      sortingHatContainerRef.current.scale.set(1, 1, 1);
+      sortingHatContainerRef.current.position.set(35, -72, -38);
+      sortingHatContainerRef.current.scale.set(2, 2, 2);
     });
   
     return (

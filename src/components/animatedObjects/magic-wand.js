@@ -1,46 +1,52 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-
 function Wand() {
-    const { scene: wandScene } = useGLTF('../model/magic-wand.glb');
-
-    // 초기 위치 정보 제거
-    const removeInitialPosition = (scene) => {
-        scene.traverse((child) => {
-            if (child.isMesh) {
-                child.position.set(0, 0, 0); // 초기 위치를 0, 0, 0으로 설정 또는 원하는 값으로 설정
-            }
-        });
-    };
-
-    removeInitialPosition(wandScene);
+    const { scene } = useGLTF('../model/magic-wand.glb');
   
     const wandRef = useRef();
+    const [isHovered, setIsHovered] = useState(false);
 
-    const wandContainerRef = useRef();
-    
-    useFrame(() => {
-      // 각각의 오브젝트 위치와 크기 설정
-      // TODO: position, rotation, scale에 animation
-      // e.g. catRef.current.position.x = 30 * Math.sin(clock.getElapsedTime() * 3);
-      wandRef.current.position.set(0, 0, 0);
-      wandRef.current.scale.set(10, 10, 10);
-      wandRef.current.rotation.set(Math.PI * 0.2, Math.PI * 0.3, 0);
-
-      wandContainerRef.current.position.set(0, -10, 0);
-      wandContainerRef.current.scale.set(5, 5, 5);
+    // useFrame((state, delta) => {
+    //   if (isHovered) {
+    //     // 마우스 오버시 회전
+    //     wandRef.current.rotation.y += delta * 5; // 회전 속도 조절 가능
+    //   } else {
+    //     // 기본 회전
+    //     wandRef.current.rotation.y += delta * 0.5; // 기본 회전 속도 조절 가능
+    //   }
+    // });
+    useFrame((state, delta) => {
+      if (isHovered && wandRef.current) {
+        wandRef.current.rotation.y += 2 * Math.PI * delta; // 회전 속도임
+      }
     });
+
+    const onPointerOver = () => {
+      setIsHovered(true); 
+    };
+
+    const onPointerOut = () => {
+      setIsHovered(false); 
+    };
   
     return (
-      <>
-        <group ref={wandContainerRef}>
-          {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={wandScene.clone()} ref={wandRef} />
-        </group>
-      </>
+      <group 
+        ref={wandRef} 
+        onPointerOver={onPointerOver} 
+        onPointerOut={onPointerOut}
+        position={[0, 0, 0]} // 초기 위치 설정
+        scale={[30,30,30]} // 초기 스케일 설정
+      >
+        <primitive 
+          object={scene.clone()} 
+          onPointerOver={onPointerOver} 
+          onPointerOut={onPointerOut} 
+        />
+      </group>
     );
 }
-  
-  export default Wand;
+
+useGLTF.preload('../model/magic-wand.glb');
+export default Wand;

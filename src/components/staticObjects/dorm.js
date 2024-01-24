@@ -5,7 +5,7 @@ import { Box } from '@react-three/drei';
 function Dorm() {
   const wall1Ref = useRef();
   const floorRef = useRef();
-  const ceilingRef = useRef();
+//   const ceilingRef = useRef();
 
   const wall21Ref = useRef();
   const wall22Ref = useRef();
@@ -23,7 +23,7 @@ function Dorm() {
     <>
     <group ref={dormContainerRef}>
         <Box ref={wall1Ref} args={[10, 180, 210]} position={[-105, -20, -5]}>
-            <meshStandardMaterial color={'#4a4a4a'} /> 
+            <meshStandardMaterial color={'#730800'} /> 
         </Box>
         <group ref={wall2ContainerRef}>
             <Box ref={wall21Ref} args={[200, 40, 10]} position={[0, 50, -105]}>

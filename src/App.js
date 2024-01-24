@@ -16,6 +16,7 @@ import Frame from './components/staticObjects/portrait-frame'
 import Book from './components/staticObjects/book'
 import Dorm from './components/staticObjects/dorm'
 import Window from './components/staticObjects/window'
+import Mirror from './components/staticObjects/mirror'
 import Owl from './components/animatedObjects/owl'
 import Broom from './components/animatedObjects/broom'
 import Wand from './components/animatedObjects/magic-wand'
@@ -42,6 +43,10 @@ function App() {
     >
 
       <Lighting lightOn={lightOn} />
+      
+      {/* 임시 */}
+      <pointLight position={[100,100,100]} color="#FFFFFF" intensity={100} castShadow={true} /> 
+      {/* <ambientLight color="#FFFFFF" intensity={100} castShadow={true} />  */}
 
       <Bed lightOn={lightOn}/>
       <Desk lightOn={lightOn}/>
@@ -64,6 +69,7 @@ function App() {
       <Dorm lightOn={lightOn}/>
       <Window lightOn={lightOn}/>
       <Frog lightOn={lightOn}/>
+      <Mirror lightOn={lightOn}/>
 
       <CameraControls
         ref={controlsRef}

@@ -22,14 +22,6 @@ function Firework() {
     const fireworkContainerRef = useRef();
 
     useFrame((state, delta) => {
-        // 애니메이션 업데이트
-        if (animations && animations.length > 0) {
-            animations.forEach((animation) => {
-                if(animation.mixer) {
-                    animation.mixer.update(delta);
-                }
-            });
-        }
 
         // 각각의 오브젝트 위치와 크기 설정
         fireworkRef.current.position.set(0, 0, 0);

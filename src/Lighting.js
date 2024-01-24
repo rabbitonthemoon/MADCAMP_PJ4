@@ -10,7 +10,7 @@ function Lighting({ lightOn }) {
 
   useEffect(() => {
     if (!ambientLightRef.current) {
-      const ambientLight = new THREE.AmbientLight(0xffcc8f, 0.4);
+      const ambientLight = new THREE.AmbientLight(0xffcc8f, 1);
       // const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
       scene.add(ambientLight);
       ambientLightRef.current = ambientLight;
@@ -35,7 +35,7 @@ function Lighting({ lightOn }) {
   useEffect(() => {
     if (lightRef.current) {
       lightRef.current.visible = lightOn;
-      lightRef.current.intensity = lightOn ? 3 : 0.4;
+      lightRef.current.intensity = lightOn ? 5 : 0.4;
     }
   }, [lightOn]);
 
@@ -53,7 +53,7 @@ function Lighting({ lightOn }) {
       directionalLightRef.current = directionalLight;
 
     }
-    directionalLightRef.current.intensity = lightOn ? 1.5 : 0.3;
+    directionalLightRef.current.intensity = lightOn ? 2 : 0.3;
   }, [scene, lightOn]);
 
   return null;

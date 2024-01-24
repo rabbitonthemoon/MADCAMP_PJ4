@@ -1,8 +1,7 @@
 import './App.css';
-import './MyCursor.css';
 
-import React, { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import React, { useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
 import Lighting from './Lighting';
 import Bed from './components/staticObjects/bed'
 import Desk from './components/staticObjects/desk'
@@ -34,7 +33,8 @@ function App() {
   const controlsRef = useRef();
 
   return (
-
+    <>
+    <MyCursor />
     <Canvas
       style={{ width: '100%', height: '100vh', background: '#030036' }}
       camera={{ position: [200, 200, 200] }}
@@ -74,7 +74,7 @@ function App() {
       <Firework/>
 
     </Canvas>
-
+    </>
   );
 }
 

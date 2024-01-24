@@ -6,15 +6,17 @@
     position: fixed;
     pointer-events: none;
     mix-blend-mode: screen;
+    z-index: 500;
 }
 
 .spark {
     width: 5px; 
     height: 5px;
-    background-color: white; 
+    background-color: rgb(255, 248, 154); 
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     mix-blend-mode: screen;
     opacity: 0.8; 
+    z-index: 500;
 }

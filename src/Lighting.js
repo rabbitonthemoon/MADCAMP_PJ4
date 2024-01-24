@@ -46,7 +46,7 @@ function Lighting({ lightOn }) {
       scene.add(directionalLight);
       directionalLightRef.current = directionalLight;
     }
-    directionalLightRef.current.intensity = lightOn ? 0.8 : 0;
+    directionalLightRef.current.intensity = lightOn ? 2 : 0;
   }, [scene, lightOn]);
 
   return null;

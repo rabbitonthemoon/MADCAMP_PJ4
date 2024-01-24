@@ -21,8 +21,8 @@ function Mirror() {
     const mirrorContainerRef = useRef();
 
     
-    const [mirrorPosition, setmirrorPosition] = useState([0, 0, 0]);
-    const [mirrorScale, setmirrorScale] = useState([1, 1, 1]);
+    const [mirrorPosition, setmirrorPosition] = useState([-5, 0, -12]);
+    const [mirrorScale, setmirrorScale] = useState([0.6, 0.82, 0.7]);
     const [mirrorRotation, setmirrorRotation] = useState([0, Math.PI /3  , 0]);
 
     const [mirrorRefContainerPosition, setmirrorRefContainerPosition] = useState([0, -100, 80]);

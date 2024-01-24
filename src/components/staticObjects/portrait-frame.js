@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
@@ -20,22 +20,19 @@ function Frame() {
     const frameRef = useRef();
 
     const frameContainerRef = useRef();
-    
-    useFrame(() => {
-      // 각각의 오브젝트 위치와 크기 설정
-      frameRef.current.position.set(0, 0, 0);
-      frameRef.current.scale.set(5, 5, 5);
-      frameRef.current.rotation.set(0, - Math.PI / 2, 0);
 
-      frameContainerRef.current.position.set(40, -10, -100);
-      frameContainerRef.current.scale.set(5, 5, 5);
-    });
+    const [framePosition, setframePosition] = useState([0, 0, 0]);
+    const [frameScale, setframeScale] = useState([5, 5, 5]);
+    const [frameRotation, setframeRotation] = useState([0, - Math.PI / 2, 0]);
+
+    const [frameRefContainerPosition, setframeRefContainerPosition] = useState([40, -10, -100]);
+    const [frameRefContainerScale, setframeRefContainerScale] = useState([5, 5, 5]);
   
     return (
       <>
-        <group ref={frameContainerRef}>
+        <group ref={frameContainerRef} position={frameRefContainerPosition} scale={frameRefContainerScale}>
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={frameScene.clone()} ref={frameRef} />
+          <primitive object={frameScene.clone()} ref={frameRef} position={framePosition} scale={frameScale} rotation={frameRotation} />
         </group>
       </>
     );

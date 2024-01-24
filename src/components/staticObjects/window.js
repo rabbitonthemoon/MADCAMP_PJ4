@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
@@ -20,22 +20,18 @@ function Window() {
     const windowRef = useRef();
 
     const windowContainerRef = useRef();
-    
-    useFrame(() => {
-      // 각각의 오브젝트 위치와 크기 설정
-      windowRef.current.position.set(0, 0, 0);
-      windowRef.current.scale.set(5, 5, 5);
-    //   windowRef.current.rotation.set(0, - Math.PI / 2, 0);
 
-      windowContainerRef.current.position.set(-18, -50, -103);
-      windowContainerRef.current.scale.set(2.3, 2.3, 2);
-    });
+    const [windowPosition, setwindowPosition] = useState([0, 0, 0]);
+    const [windowScale, setwindowScale] = useState([5, 5, 5]);
+
+    const [windowRefContainerPosition, setwindowRefContainerPosition] = useState([-18, -50, -103]);
+    const [windowRefContainerScale, setwindowRefContainerScale] = useState([2.3, 2.3, 2]);
   
     return (
       <>
-        <group ref={windowContainerRef}>
+        <group ref={windowContainerRef} position={windowRefContainerPosition} scale={windowRefContainerScale}>
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={windowScene.clone()} ref={windowRef} />
+          <primitive object={windowScene.clone()} ref={windowRef} position={windowPosition} scale={windowScale} />
         </group>
       </>
     );

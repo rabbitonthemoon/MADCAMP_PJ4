@@ -23,8 +23,6 @@ function Paperplane() {
     
     useFrame(({ clock }) => {
       // 각각의 오브젝트 위치와 크기 설정
-      // paperplane1Ref.current.position.set(4, 0.3, 0);
-      // paperplane1Ref.current.rotation.set(0, Math.PI / 2, 0);
       paperplane1Ref.current.position.x = 3 * Math.sin(2 * clock.getElapsedTime()) + 4;
       paperplane1Ref.current.position.z = 2 * Math.cos(2 * clock.getElapsedTime()) - 3;
       paperplane1Ref.current.position.y = Math.sin(2 * clock.getElapsedTime()) + 2;

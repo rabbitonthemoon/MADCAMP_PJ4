@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
@@ -19,22 +19,19 @@ function Books() {
     const booksRef = useRef();
 
     const booksContainerRef = useRef();
-    
-    useFrame(() => {
-      // 각각의 오브젝트 위치와 크기 설정
-      booksRef.current.position.set(5, 0.7, 2);
-      booksRef.current.scale.set(2, 2, 2);
-      booksRef.current.rotation.set(0, 4, 0);
 
-      booksContainerRef.current.position.set(0, -100, 30);
-      booksContainerRef.current.scale.set(12, 12, 12);
-    });
+    const [booksPosition, setbooksPosition] = useState([5, 0.7, 2]);
+    const [booksScale, setbooksScale] = useState([2, 2, 2]);
+    const [booksRotation, setbooksRotation] = useState([0, 4, 0]);
+
+    const [booksRefContainerPosition, setbookRefContainerPosition] = useState([0, -100, 30]);
+    const [booksRefContainerScale, setbookRefContainerScale] = useState([12, 12, 12]);
   
     return (
       <>
-        <group ref={booksContainerRef}>
+        <group ref={booksContainerRef} position={booksRefContainerPosition} scale={booksRefContainerScale}>
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={booksScene.clone()} ref={booksRef} />
+          <primitive object={booksScene.clone()} ref={booksRef} position={booksPosition} scale={booksScale} rotation={booksRotation} />
         </group>
       </>
     );

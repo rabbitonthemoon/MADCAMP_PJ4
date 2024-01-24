@@ -3,7 +3,6 @@ import './MyCursor.css';
 
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import CanvasSetup from './canvasSetup';
 import Lighting from './Lighting';
 import Bed from './components/staticObjects/bed'
 import Desk from './components/staticObjects/desk'

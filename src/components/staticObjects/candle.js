@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
@@ -20,22 +20,19 @@ function Candle() {
     const candleRef = useRef();
 
     const candleContainerRef = useRef();
-    
-    useFrame(() => {
-      // 각각의 오브젝트 위치와 크기 설정
-      candleRef.current.position.set(0, 0, 0);
-      candleRef.current.scale.set(50, 50, 50);
-    //   candleRef.current.rotation.set(0, Math.PI / 2, 0);
 
-      candleContainerRef.current.position.set(120, -70, -260);
-      candleContainerRef.current.scale.set(1, 1, 1);
-    });
+    const [candlePosition, setcandlePosition] = useState([0, 0, 0]);
+    const [candleScale, setcandleScale] = useState([50, 50, 50]);
+
+    const [candleRefContainerPosition, setcandleRefContainerPosition] = useState([120, -70, -260]);
+    const [candleRefContainerScale, setcandleRefContainerScale] = useState([1, 1, 1]);
+  
   
     return (
       <>
-        <group ref={candleContainerRef}>
+        <group ref={candleContainerRef} position={candleRefContainerPosition} scale={candleRefContainerScale}>
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={candleScene.clone()} ref={candleRef} />
+          <primitive object={candleScene.clone()} ref={candleRef} position={candlePosition} scale={candleScale} />
         </group>
       </>
     );

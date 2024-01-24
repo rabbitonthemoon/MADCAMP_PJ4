@@ -26,24 +26,9 @@ function Carpet() {
 
     const [carpetRefContainerPosition, setcarpetRefContainerPosition] = useState([0, -100, 30]);
     const [carpetRefContainerScale, setcarpetRefContainerScale] = useState([12, 12, 12]);
-    
-    // useFrame(() => {
-    //   // 각각의 오브젝트 위치와 크기 설정
-    //   carpetRef.current.position.set(0, 0, 0);
-    //   carpetRef.current.scale.set(5, 5, 5);
-    //   carpetRef.current.rotation.set(0, Math.PI / 2, 0);
-
-    //   carpetContainerRef.current.position.set(0, -100, 30);
-    //   carpetContainerRef.current.scale.set(12, 12, 12);
-    // });
+  
   
     return (
-      // <>
-      //   <group ref={carpetContainerRef}>
-      //     {/* 각 오브젝트를 primitive로 렌더링 */}
-      //     <primitive object={carpetScene.clone()} ref={carpetRef} />
-      //   </group>
-      // </>
       <>
       <group ref={carpetContainerRef} position={carpetRefContainerPosition} scale={carpetRefContainerScale} >
         {/* 각 오브젝트를 primitive로 렌더링 */}

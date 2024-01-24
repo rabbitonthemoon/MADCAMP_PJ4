@@ -28,25 +28,8 @@ function BookRef() {
     const [bookRefContainerPosition, setbookRefContainerPosition] = useState([-10, -50, -80]);
     const [bookRefContainerScale, setbookRefContainerScale] = useState([1, 1, 1]);
 
-    
-    
-    // useFrame(() => {
-    //   // 각각의 오브젝트 위치와 크기 설정
-    //   bookRef.current.position.set(0, 0, 0);
-    //   bookRef.current.scale.set(40, 40, 40);
-    // //   bookRef.current.rotation.set(0, Math.PI / 2, 0);
-
-    //   bookRefContainerRef.current.position.set(-10, -50, -80);
-    //   bookRefContainerRef.current.scale.set(1, 1, 1);
-    // });
   
     return (
-      // <>
-      //   <group ref={bookRefContainerRef}>
-      //     {/* 각 오브젝트를 primitive로 렌더링 */}
-      //     <primitive object={bookRefScene.clone()} ref={bookRef} />
-      //   </group>
-      // </>
       <>
         <group ref={bookRefContainerRef} position={bookRefContainerPosition} scale={bookRefContainerScale}>
           {/* 각 오브젝트를 primitive로 렌더링 */}

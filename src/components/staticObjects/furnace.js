@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
 
 function Furnace() {
     const { scene: furnaceScene } = useGLTF('../model/furnace.glb');
@@ -19,22 +18,20 @@ function Furnace() {
     const furnaceRef = useRef();
 
     const furnaceContainerRef = useRef();
-    
-    useFrame(() => {
-      // 각각의 오브젝트 위치와 크기 설정
-      furnaceRef.current.position.set(0, 0, 0);
-      furnaceRef.current.scale.set(2, 3, 2);
-      furnaceRef.current.rotation.set(0, Math.PI, 0);
 
-      furnaceContainerRef.current.position.set(80, -30, -85);
-      furnaceContainerRef.current.scale.set(1, 1, 1);
-    });
+    const [furnacePosition, setfurnacePosition] = useState([0, 0, 0]);
+    const [furnaceScale, setfurnaceScale] = useState([2, 3, 2]);
+    const [furnaceRotation, setfurnaceRotation] = useState([0, Math.PI, 0]);
+
+    const [furnaceRefContainerPosition, setfurnaceRefContainerPosition] = useState([80, -30, -85]);
+    const [furnaceRefContainerScale, setfurnaceRefContainerScale] = useState([1, 1, 1]);
+  
   
     return (
       <>
-        <group ref={furnaceContainerRef}>
+        <group ref={furnaceContainerRef} position={furnaceRefContainerPosition} scale={furnaceRefContainerScale}>
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={furnaceScene.clone()} ref={furnaceRef} />
+          <primitive object={furnaceScene.clone()} ref={furnaceRef} position={furnacePosition} scale={furnaceScale} rotation={furnaceRotation} />
         </group>
       </>
     );

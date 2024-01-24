@@ -29,7 +29,7 @@ function Scroll() {
       scrollRef.current.scale.set(5, 5, 5);
     //   scrollRef.current.rotation.set(0, Math.PI / 2, 0);
 
-      scrollContainerRef.current.position.set(-40, -50, -80);
+      scrollContainerRef.current.position.set(-40, -52, -80);
       scrollContainerRef.current.scale.set(5, 10, 10);
     });
   

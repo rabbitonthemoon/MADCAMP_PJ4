@@ -20,14 +20,19 @@ function Pot() {
 
     const potContainerRef = useRef();
     
-    useFrame(() => {
+    useFrame(({clock}) => {
       // 각각의 오브젝트 위치와 크기 설정
-      potRef.current.position.set(-12, -0.8, -6);
-      potRef.current.scale.set(3, 3, 3);
-      potRef.current.rotation.set(0, Math.PI / 2, 0);
-
-      potContainerRef.current.position.set(0, -100, 30);
-      potContainerRef.current.scale.set(12, 12, 12);
+      potRef.current.position.set(0, 0, 0);
+      potRef.current.scale.set(1, 1, 1);
+      
+      // potRef.current.rotation.set(0, Math.PI / 2, 0);
+      // potRef.current.rotation.set(clock.getElapsedTime() / 16, 0, 0);
+      // clock.getElapsedTime()
+      
+      potContainerRef.current.position.set(10, -110, -80);
+      // potContainerRef.current.position.set(0, -100, 30);
+      potContainerRef.current.scale.set(35, 35, 35);
+      // potContainerRef.current.rotation.set(clock.getElapsedTime() / 16, 0, 0);
     });
   
     return (

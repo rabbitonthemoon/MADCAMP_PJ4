@@ -21,13 +21,23 @@ function Broom() {
 
     const broomContainerRef = useRef();
     
-    useFrame(() => {
+    useFrame(({clock}) => {
       // 각각의 오브젝트 위치와 크기 설정
       // TODO: position, rotation, scale에 animation
       // e.g. catRef.current.position.x = 30 * Math.sin(clock.getElapsedTime() * 3);
       broomRef.current.position.set(0, 0, 0);
+
       broomRef.current.scale.set(10, 10, 10);
-    //   broomRef.current.rotation.set(0, Math.PI / 2, 0);
+      // broomRef.current.rotation.set(clock.getElapsedTime(), 0, 0);
+
+       // Oscillating rotation around the x-axis within 30 degrees
+      const maxRotationX = Math.PI / 24;
+      const oscillationValue = Math.sin(2 * clock.getElapsedTime());
+      broomRef.current.rotation.set(
+        oscillationValue * maxRotationX,
+        0,
+        0
+      );
 
       broomContainerRef.current.position.set(-85, -100, 20);
       broomContainerRef.current.scale.set(5, 5, 5);

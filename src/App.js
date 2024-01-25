@@ -25,6 +25,7 @@ import SortingHat from './components/animatedObjects/sorting-hat'
 import Firework from './components/animatedObjects/firework'
 import Books from './components/staticObjects/books'
 import Chandelier from './components/staticObjects/chandelier'
+import Frog from './components/staticObjects/chocolate-frog'
 import { CameraControls } from '@react-three/drei';
 
 import MyCursor from './MyCursor';
@@ -67,7 +68,9 @@ function App() {
       <Chandelier setLightOn={setLightOn}/>
       <Dorm lightOn={lightOn}/>
       <Window lightOn={lightOn}/>
-      {/* <Mirror lightOn={lightOn}/> */}
+
+      <Frog lightOn={lightOn}/>
+      <Mirror lightOn={lightOn}/>
 
       <CameraControls
         ref={controlsRef}

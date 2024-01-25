@@ -20,7 +20,7 @@ function Cat() {
 
     const catContainerRef = useRef();
     
-    useFrame(() => {
+    useFrame(({clock}) => {
       // 각각의 오브젝트 위치와 크기 설정
       catRef.current.position.set(0, 0, 0);
       catRef.current.scale.set(3, 3, 3);
@@ -28,6 +28,7 @@ function Cat() {
 
       catContainerRef.current.position.set(0, -100, 30);
       catContainerRef.current.scale.set(12, 12, 12);
+      catContainerRef.current.rotation.set(0, - 0.5 *  clock.getElapsedTime(), 0);
     });
   
     return (

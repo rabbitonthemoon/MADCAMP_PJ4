@@ -17,16 +17,37 @@ function Firework() {
 
     removeInitialPosition(fireworkScene);
 
-    const fireworkRef = useRef();
+    const firework1Ref = useRef();
+    const firework2Ref = useRef();
 
     const fireworkContainerRef = useRef();
 
-    useFrame((state, delta) => {
+    useFrame(({clock}) => {
 
         // 각각의 오브젝트 위치와 크기 설정
-        fireworkRef.current.position.set(0, 0, 0);
-        fireworkRef.current.scale.set(1, 1, 1);
-        // fireworkRef.current.rotation.set(0, Math.PI / 2, 0);
+        firework1Ref.current.position.set(0, 0, 0);
+        firework2Ref.current.position.set(-5, -1, 2);
+
+        var scaleValue1 = 0;
+        if (clock.getElapsedTime() % (2 * Math.PI) > Math.PI) {
+            scaleValue1 = 0.5 * Math.cos(clock.getElapsedTime()) + 0.5;
+        } else if (clock.getElapsedTime() % (2 * Math.PI) < Math.PI * 0.5) {
+            scaleValue1 = 1;
+        } else {
+            scaleValue1 = 0;
+        }
+
+        var scaleValue2 = 0;
+        if ((clock.getElapsedTime() - Math.PI *0.75) % (2 * Math.PI) > Math.PI) {
+            scaleValue2 = 0.3 * Math.cos(clock.getElapsedTime() - Math.PI *0.75) + 0.3;
+        } else if ((clock.getElapsedTime() - Math.PI * 0.75) % (2 * Math.PI) < Math.PI * 0.5) {
+            scaleValue2 = 0.6;
+        } else {
+            scaleValue2 = 0;
+        }
+
+        firework1Ref.current.scale.set(scaleValue1, scaleValue1, scaleValue1); 
+        firework2Ref.current.scale.set(scaleValue2, scaleValue2, scaleValue2); 
 
         fireworkContainerRef.current.position.set(-20, -40, -160);
         fireworkContainerRef.current.scale.set(5, 5, 5);
@@ -36,7 +57,8 @@ function Firework() {
         <>
             <group ref={fireworkContainerRef}>
                 {/* 각 오브젝트를 primitive로 렌더링 */}
-                <primitive object={fireworkScene.clone()} ref={fireworkRef} />
+                <primitive object={fireworkScene.clone()} ref={firework1Ref} />
+                <primitive object={fireworkScene.clone()} ref={firework2Ref} />
             </group>
         </>
     );

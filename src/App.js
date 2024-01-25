@@ -68,6 +68,7 @@ function App() {
       <Chandelier setLightOn={setLightOn}/>
       <Dorm lightOn={lightOn}/>
       <Window lightOn={lightOn}/>
+
       <Frog lightOn={lightOn}/>
       <Mirror lightOn={lightOn}/>
 

@@ -21,9 +21,9 @@ const MyCursor = () => {
     return (
         <>
             <div className="my-cursor" style={{ left: `${position.x}px`, top: `${position.y}px` }}></div> {/* 커서 위치 렌더링 */}
-            {/* {trail.map((pos, index) => (
+            {trail.map((pos, index) => (
                 <div key={index} className="spark" style={{ left: `${pos.x}px`, top: `${pos.y}px` }}></div> // 반짝이 위치 렌더링
-            ))} */}
+            ))}
         </>
     );
 };

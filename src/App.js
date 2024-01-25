@@ -1,6 +1,10 @@
 import './App.css';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+
+import { useSound } from 'use-sound';
+import backgroundMusic from './background-music.mp3';
+
 import { Canvas } from '@react-three/fiber';
 import Lighting from './Lighting';
 import Bed from './components/staticObjects/bed'
@@ -27,12 +31,24 @@ import Books from './components/staticObjects/books'
 import Chandelier from './components/staticObjects/chandelier'
 import Frog from './components/staticObjects/chocolate-frog'
 import { CameraControls } from '@react-three/drei';
+import Photo from './components/testImage'
 
 import MyCursor from './MyCursor';
 
 function App() {
   const [lightOn, setLightOn] = useState(true);
+  const [photoVisible, setPhotoVisible] = useState(false);
   const controlsRef = useRef();
+
+  const [play, { stop }] = useSound(backgroundMusic, { volume: 0.5, loop: true });
+
+  useEffect(() => {
+    // 컴포넌트가 마운트될 때 배경음악을 재생합니다.
+    play();
+
+    // 컴포넌트가 언마운트될 때 배경음악을 정지합니다.
+    return () => stop();
+  }, [play, stop]);
 
   return (
     <>
@@ -60,7 +76,7 @@ function App() {
       <Broom lightOn={lightOn}/>
       <Wand lightOn={lightOn}/>
       <Scroll lightOn={lightOn}/>
-      <SortingHat lightOn={lightOn}/>
+      <SortingHat lightOn={lightOn} setPhotoVisible={setPhotoVisible} />
       <Frame lightOn={lightOn}/>
       <Candle lightOn={lightOn}/>
       <Book lightOn={lightOn}/>
@@ -71,6 +87,10 @@ function App() {
 
       <Frog lightOn={lightOn}/>
       <Mirror lightOn={lightOn}/>
+
+      {photoVisible && (
+          <Photo />
+        )}
 
       <CameraControls
         ref={controlsRef}

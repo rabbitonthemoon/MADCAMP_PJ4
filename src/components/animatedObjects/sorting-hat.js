@@ -3,9 +3,10 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 
-function SortingHat() {
+function SortingHat({setPhotoVisible}) {
     const { scene: sortingHatScene } = useGLTF('../model/sorting-hat.glb');
 
+    
     // 초기 위치 정보 제거
     const removeInitialPosition = (scene) => {
         scene.traverse((child) => {
@@ -20,7 +21,18 @@ function SortingHat() {
     const sortingHatRef = useRef();
 
     const sortingHatContainerRef = useRef();
-    
+
+    const handleSortingHatClick = () => {
+      console.log("click sorting Hat~!");
+      setPhotoVisible(true);
+  
+      // 3초 후에 사진을 다시 숨깁니다.
+      setTimeout(() => {
+        setPhotoVisible(false);
+      }, 7000);
+    };
+
+
     useFrame(() => {
       // 각각의 오브젝트 위치와 크기 설정
       // TODO: position, rotation, scale에 animation
@@ -35,9 +47,9 @@ function SortingHat() {
   
     return (
       <>
-        <group ref={sortingHatContainerRef}>
+        <group ref={sortingHatContainerRef} >
           {/* 각 오브젝트를 primitive로 렌더링 */}
-          <primitive object={sortingHatScene.clone()} ref={sortingHatRef} />
+          <primitive object={sortingHatScene.clone()} ref={sortingHatRef} onClick={handleSortingHatClick} />
         </group>
       </>
     );

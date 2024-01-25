@@ -35,7 +35,7 @@ function Lighting({ lightOn }) {
   useEffect(() => {
     if (lightRef.current) {
       lightRef.current.visible = lightOn;
-      lightRef.current.intensity = lightOn ? 5 : 0.4;
+      lightRef.current.intensity = lightOn ? 5 : 0.1;
     }
   }, [lightOn]);
 
@@ -53,7 +53,7 @@ function Lighting({ lightOn }) {
       directionalLightRef.current = directionalLight;
 
     }
-    directionalLightRef.current.intensity = lightOn ? 2 : 0.3;
+    directionalLightRef.current.intensity = lightOn ? 2 : 0.1;
   }, [scene, lightOn]);
 
   return null;

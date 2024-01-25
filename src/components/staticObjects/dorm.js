@@ -40,7 +40,7 @@ function Dorm() {
             </Box>
         </group>
         <Box ref={floorRef} args={[200, 10, 200]} position={[0, -105, 0]}>
-            <meshStandardMaterial color={'#4a4a4a'} />
+            <meshStandardMaterial color={'#1f160b'} /> 
         </Box>
         {/* <Box ref={ceilingRef} args={[100, 100, 100]} position={[0, 0, 0]}>
             <meshStandardMaterial color={'#61dafb'} />

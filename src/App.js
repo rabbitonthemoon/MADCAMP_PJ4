@@ -54,7 +54,7 @@ function App() {
     <>
     <MyCursor />
     <Canvas
-      style={{ width: '100%', height: '100vh', background: '#030036' }}
+      style={{ width: '100%', height: '100vh', background: '#0a0b1a' }}
       camera={{ position: [200, 200, 200] }}
     >
 

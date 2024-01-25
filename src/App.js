@@ -67,7 +67,7 @@ function App() {
       <Chandelier setLightOn={setLightOn}/>
       <Dorm lightOn={lightOn}/>
       <Window lightOn={lightOn}/>
-      <Mirror lightOn={lightOn}/>
+      {/* <Mirror lightOn={lightOn}/> */}
 
       <CameraControls
         ref={controlsRef}

@@ -1,9 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
-function Cat() {
+function Cat({ lightOn }) {
     const { scene: catScene } = useGLTF('../model/cat.glb');
+    const catRef = useRef();
+    const catContainerRef = useRef();
+    const savedAnimationState = useRef({ position: [0, 0, 0], rotation: [0, 0, 0] }); 
 
     // 초기 위치 정보 제거
     const removeInitialPosition = (scene) => {
@@ -15,11 +18,7 @@ function Cat() {
     };
 
     removeInitialPosition(catScene);
-  
-    const catRef = useRef();
 
-    const catContainerRef = useRef();
-    
     useFrame(({clock}) => {
       // 각각의 오브젝트 위치와 크기 설정
       catRef.current.position.set(0, 0, 0);
@@ -28,8 +27,21 @@ function Cat() {
 
       catContainerRef.current.position.set(0, -100, 30);
       catContainerRef.current.scale.set(12, 12, 12);
-      catContainerRef.current.rotation.set(0, - 0.5 *  clock.getElapsedTime(), 0);
+      
+
+      if (!lightOn){
+        catContainerRef.current.rotation.set(0, - 0.5 *  clock.getElapsedTime(), 0);
+      }
     });
+
+    useEffect(() => {
+      if (lightOn) {
+          // lightOn이 true가 되면, 저장된 애니메이션 상태로 설정
+          if (catRef.current && catContainerRef.current) {
+              catRef.current.rotation.set(...savedAnimationState.current.rotation);
+          }
+      }
+  }, [lightOn]);
   
     return (
       <>

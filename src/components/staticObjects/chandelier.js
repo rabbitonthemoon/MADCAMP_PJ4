@@ -1,8 +1,9 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
+import { Clock } from 'three';
 
-function Chandelier({setLightOn}) {
+function Chandelier({setLightOn, setClickTime}) {
     const { scene: chandelierScene } = useGLTF('../model/chandelier.glb');
     const chandelierRef = useRef();
     const chandelierContainerRef = useRef();
@@ -29,7 +30,7 @@ function Chandelier({setLightOn}) {
     });
 
     const handleClick = () => {
-      setLightOn(prev => !prev);  // 조명 상태
+      setLightOn(prev => !prev);  // 조명 상태                                                                                                                                                                                                                                                                                                                                                    0000000000000
     };
   
     return (

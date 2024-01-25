@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 
 
-function Broom() {
+function Broom({lightOn}) {
     const { scene: broomScene } = useGLTF('../model/broom.glb');
 
     // 초기 위치 정보 제거
@@ -22,6 +22,8 @@ function Broom() {
     const broomContainerRef = useRef();
     
     useFrame(({clock}) => {
+    
+
       // 각각의 오브젝트 위치와 크기 설정
       // TODO: position, rotation, scale에 animation
       // e.g. catRef.current.position.x = 30 * Math.sin(clock.getElapsedTime() * 3);
